@@ -1,17 +1,13 @@
 #pragma once
-
-
 #include <string>
-using namespace std;
 
-#undef ROMANNUMERAL_H
-#define ROMANNUMERAL_H
 
-class romanNumeral
-{
+
+class RomanNumeral
+{	
 public:
-	int num;
-public:
-	string IntToRoman(int num);
+	std::string IntToRoman(int num);
+	bool validate(int num);
 };
+
 

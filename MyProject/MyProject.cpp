@@ -3,23 +3,24 @@
 
 #include <iostream>
 #include "romanNumeral.h"
-using namespace std;
 
-int main()
+
+int main(int argc, char** argv)
 {
-	romanNumeral romanNumeral; //create an object of Class RomanNumeral
-	cout << "Please enter an integer : ";
-	cin >> romanNumeral.num;
-	if ((romanNumeral.num > 2000) || (romanNumeral.num < 1)) {
-		cout << endl << "Invalid Integer" << endl;
-
+	 
+	std::cout << "Enter a numeral between 1 to 2000 to convert into roman numeral : " ;
+	int num;
+	std::cin >> num;
+	RomanNumeral romanNumeral; //create an object of Class RomanNumeral
+	if (romanNumeral.validate(num)) {
+		auto result = romanNumeral.IntToRoman(num);
+		std::cout << "Roman Numeral of " << num << " is : " << result << std::endl;
 	}
-	else {
-
-		cout << "Roman Numeral of " << romanNumeral.num << " is : " << romanNumeral.IntToRoman(romanNumeral.num) << endl;
-
+	else
+	{
+		std::cout<<"Invalid Number! ";
 	}
-
+	
 return 0;
 
 }
