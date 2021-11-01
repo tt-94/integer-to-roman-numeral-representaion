@@ -10,16 +10,20 @@ namespace {
 }
 
 
-bool RomanNumeral::validate(int num) {
+bool RomanNumeral::validate(std::string num) {
+	int inum = std::stoi(num);
 
-	return ((num <= 2000) && (num >= 1));
+	if (((inum > 2000) || (inum < 1))) {
+		return false;
+	}
 
+	return true;
 }
 
 
-std::string RomanNumeral::IntToRoman(int num)
+std::string RomanNumeral::IntToRoman(std::string strnum)
 {
-
+	int num = std::stoi(strnum);
 	std::string result = "";
 	for (std::size_t i{ 0 }; i < arr_values.size(); ++i)
 	{

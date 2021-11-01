@@ -1,2 +1,6 @@
-﻿  test.cpp
+﻿  pch.cpp
+  Main.cpp
+  RomanNumeral.cpp
+  test.cpp
+  Generating Code...
   Test-RomanNumeral.vcxproj -> C:\Users\tteja\source\repos\Test-RomanNumeral\Debug\Test-RomanNumeral.exe

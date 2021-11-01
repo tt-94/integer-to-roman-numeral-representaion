@@ -4,11 +4,11 @@
 
 TEST(TestCaseName, RightTest_1) {
 	RomanNumeral romanNumeral;
-	EXPECT_TRUE(romanNumeral.validate(1));
-	EXPECT_EQ("I", romanNumeral.IntToRoman(1));
+	EXPECT_TRUE (romanNumeral.validate("0"));
+	EXPECT_EQ ("I", romanNumeral.IntToRoman("0"));
 }
 
-TEST(TestCaseName, RightTest_2) {
+/*TEST(TestCaseName, RightTest_2) {
 	RomanNumeral romanNumeral;
 	EXPECT_TRUE(romanNumeral.validate(100));
 	EXPECT_EQ("C", romanNumeral.IntToRoman(100));
@@ -25,3 +25,22 @@ TEST(TestCaseName, FalseTest_2) {
 	EXPECT_TRUE(romanNumeral.validate(1999));
 	EXPECT_EQ("MCMXCI", romanNumeral.IntToRoman(1999));
 }
+
+TEST(TestCaseName, FalseTest_3) {
+	RomanNumeral romanNumeral;
+	EXPECT_TRUE(romanNumeral.validate(1.9));
+	EXPECT_EQ("II", romanNumeral.IntToRoman(1.9));
+}
+
+TEST(TestCaseName, FalseTest_4) {
+	RomanNumeral romanNumeral;
+	EXPECT_TRUE(romanNumeral.validate(-1));
+	EXPECT_EQ("I", romanNumeral.IntToRoman(-1));
+}
+
+TEST(TestCaseName, FalseTest_5) {
+	RomanNumeral romanNumeral;
+	EXPECT_TRUE(romanNumeral.validate(2001));
+	EXPECT_EQ("MMI", romanNumeral.IntToRoman(2001));
+}
+*/
