@@ -6,6 +6,7 @@ class RomanNumeral
 {
 public:
 	std::string IntToRoman(std::string num);
+private:
 	bool validate(std::string num);
 };
 

@@ -4,50 +4,54 @@
 
 TEST(TestCaseName, FalseTest_1) {
 	RomanNumeral romanNumeral;
-	EXPECT_FALSE (romanNumeral.validate("1.2"));
-	//EXPECT_EQ ("I", romanNumeral.IntToRoman("1"));
+	EXPECT_THROW(romanNumeral.IntToRoman("0"), std::exception);
 }
 
 TEST(TestCaseName, FalseTest_2) {
 	RomanNumeral romanNumeral;
-	EXPECT_FALSE(romanNumeral.validate("-1.2"));
-	//EXPECT_EQ("I", romanNumeral.IntToRoman("1.2"));
+	EXPECT_THROW(romanNumeral.IntToRoman("1.2"), std::exception);
 }
 
 TEST(TestCaseName, FalseTest_3) {
 	RomanNumeral romanNumeral;
-	EXPECT_FALSE(romanNumeral.validate("a"));
-	//EXPECT_EQ("C", romanNumeral.IntToRoman("a"));
+	EXPECT_THROW(romanNumeral.IntToRoman("-24"), std::exception);
 }
 
 TEST(TestCaseName, FalseTest_4) {
 	RomanNumeral romanNumeral;
-	EXPECT_FALSE(romanNumeral.validate("-24"));
-	//EXPECT_EQ("I", romanNumeral.IntToRoman("-24"));
+	EXPECT_THROW(romanNumeral.IntToRoman("a"), std::exception);
 }
 
 TEST(TestCaseName, FalseTest_5) {
 	RomanNumeral romanNumeral;
-	EXPECT_FALSE(romanNumeral.validate("2001"));
-	//EXPECT_EQ("MCMXCI", romanNumeral.IntToRoman("2001"));
+	EXPECT_THROW(romanNumeral.IntToRoman("2001"), std::exception);
 }
-
 
 
 TEST(TestCaseName, TrueTest_1) {
+	std::string result;
 	RomanNumeral romanNumeral;
-	EXPECT_TRUE(romanNumeral.validate("+10"));
-	EXPECT_EQ("X", romanNumeral.IntToRoman("+10"));
+	EXPECT_NO_THROW(result = romanNumeral.IntToRoman("1"));
+	EXPECT_EQ("I", result);
 }
 
 TEST(TestCaseName, TrueTest_2) {
+	std::string result;
 	RomanNumeral romanNumeral;
-	EXPECT_TRUE(romanNumeral.validate("50"));
-	EXPECT_EQ("L", romanNumeral.IntToRoman("50"));
+	EXPECT_NO_THROW(result = romanNumeral.IntToRoman("67"));
+	EXPECT_EQ("LXVII", result);
 }
 
 TEST(TestCaseName, TrueTest_3) {
+	std::string result;
 	RomanNumeral romanNumeral;
-	EXPECT_TRUE(romanNumeral.validate("1999"));
-	EXPECT_EQ("MCMXCIX", romanNumeral.IntToRoman("1999"));
+	EXPECT_NO_THROW(result = romanNumeral.IntToRoman("525"));
+	EXPECT_EQ("DXXV", result);
+}
+
+TEST(TestCaseName, TrueTest_4) {
+	std::string result;
+	RomanNumeral romanNumeral;
+	EXPECT_NO_THROW(result = romanNumeral.IntToRoman("1999"));
+	EXPECT_EQ("MCMXCIX", result);
 }

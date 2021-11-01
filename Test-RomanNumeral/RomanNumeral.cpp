@@ -11,17 +11,18 @@ namespace {
 }
 
 
-bool RomanNumeral::validate(std::string num) {
+bool RomanNumeral::validate(std::string inum) {
 
 	
 	std::regex float_regex("\\.|-|[a-zA-Z]", std::regex_constants::ECMAScript | std::regex_constants::icase);
-	if (std::regex_search(num, float_regex)) {
-		std::cout << "The entered value is invalid. Please enter a valid integer between 1 and 2000." << std::endl;
+	if (std::regex_search(inum, float_regex)) 
+	{
 		return false;
 	}
 
-	int inum = std::stoi(num);
-	if (((inum > 2000) || (inum < 1))) {
+	int num = std::stoi(inum);
+	if (((num > 2000) || (num < 1))) 
+	{
 		std::cout << "Enter an integer between 1 and 2000 " << std::endl;
 		return false;
 	}
@@ -32,17 +33,32 @@ bool RomanNumeral::validate(std::string num) {
 
 std::string RomanNumeral::IntToRoman(std::string strnum)
 {
-	int num = std::stoi(strnum);
-	std::string result = "";
-	for (std::size_t i{ 0 }; i < arr_values.size(); ++i)
+	if (validate(strnum))
 	{
-		while (num - arr_values[i] >= 0)
+		try
 		{
-			result += arr_roman[i];
-			num -= arr_values[i];
+			int num = std::stoi(strnum);
+			std::string result = "";
+			for (std::size_t i{ 0 }; i < arr_values.size(); ++i)
+			{
+				while (num - arr_values[i] >= 0)
+				{
+					result += arr_roman[i];
+					num -= arr_values[i];
+				}
+			}
+
+			return result;
+		}
+		catch (std::exception& e)
+		{
+			//std::cout << "Unexpected Error: " << e.what() << std::endl;
 		}
 	}
-
-	return result;
+	else
+	{
+		throw std::runtime_error("The entered value is invalid. Please enter a valid integer between 1 and 2000");
+	}
+	return "";
 }
 

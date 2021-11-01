@@ -11,19 +11,21 @@ int main(int argc, char** argv)
 
 	std::string num;
 
-	/*std::cout << "Enter a numeral between 1 to 2000 to convert into roman numeral : ";
+	std::cout << "Enter a numeral between 1 to 2000 to convert into roman numeral : ";
 	std::cin >> num;
 	RomanNumeral romannumeral; //create an object of Class RomanNumeral
-	//if (regex_match(num, integer))
-	if (romannumeral.validate(num)) {
+	try
+	{
 		std::string res = romannumeral.IntToRoman(num);
 		std::cout << "Roman Numeral of " << num << " is : " << res << std::endl;
 	}
-	else
+	catch (const std::exception& e)
 	{
-		std::cout << "Invalid Number! ";
-	}
-	*/
+		std::cout << "Unexpected Error: " << e.what() << std::endl;
+	} 
 	return RUN_ALL_TESTS();
-
 }
+	
+	
+
+
