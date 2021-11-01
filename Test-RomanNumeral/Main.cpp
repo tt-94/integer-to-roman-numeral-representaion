@@ -10,9 +10,8 @@ int main(int argc, char** argv)
 	::testing::InitGoogleTest(&argc, argv);
 
 	std::string num;
-	//std::regex integer("(\\+|-?[[:digit:]]+");
 
-	std::cout << "Enter a numeral between 1 to 2000 to convert into roman numeral : ";
+	/*std::cout << "Enter a numeral between 1 to 2000 to convert into roman numeral : ";
 	std::cin >> num;
 	RomanNumeral romannumeral; //create an object of Class RomanNumeral
 	//if (regex_match(num, integer))
@@ -24,7 +23,7 @@ int main(int argc, char** argv)
 	{
 		std::cout << "Invalid Number! ";
 	}
-
+	*/
 	return RUN_ALL_TESTS();
 
 }

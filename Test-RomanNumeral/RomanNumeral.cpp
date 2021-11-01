@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "RomanNumeral.h"
 #include<array>
+#include<regex>
 
 namespace {
 
@@ -11,9 +12,17 @@ namespace {
 
 
 bool RomanNumeral::validate(std::string num) {
-	int inum = std::stoi(num);
 
+	
+	std::regex float_regex("\\.|-|[a-zA-Z]", std::regex_constants::ECMAScript | std::regex_constants::icase);
+	if (std::regex_search(num, float_regex)) {
+		std::cout << "The entered value is invalid. Please enter a valid integer between 1 and 2000." << std::endl;
+		return false;
+	}
+
+	int inum = std::stoi(num);
 	if (((inum > 2000) || (inum < 1))) {
+		std::cout << "Enter an integer between 1 and 2000 " << std::endl;
 		return false;
 	}
 
